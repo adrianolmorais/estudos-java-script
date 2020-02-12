@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula de Funções JS</title>
+    <script>
+        
+        //Criando funcao de forma literal.
+        function somar(n1, n2){
+            //corpo da funcao
+            return n1 + n2;
+        }
+        var soma = somar(10, 20);
+        console.log('Resultado: ', soma);
+        
+        //Funções são cidadãos de primeira classe ou seja são consideradas como objetos. 
+        
+        //Funçoes podem receber propiedades.
+        somar.teste = 'Propiedade da função';
+        console.log(somar.teste);
+
+        //Funções anonimas podem ser atribuidas a propiedades.
+        var imprimir = function(frase){
+            console.log('funcao anonima', frase);
+        };
+
+        imprimir('recebeu o parametro.');
+
+        //Funçoes podem ser passadas por parametros
+        var funcaoPorParametros = function(funcaoTeste){
+            funcaoTeste();
+        };
+
+        funcaoPorParametros(function(){
+            console.log('funcao passada por parametro.');
+        });
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
