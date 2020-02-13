@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +27,7 @@
 
         imprimir('recebeu o parametro.');
 
-        //Funçoes podem ser passadas por parametros
+        //Funçoes podem ser passadas por parametros.
         var funcaoPorParametros = function(funcaoTeste){
             funcaoTeste();
         };
@@ -35,6 +35,49 @@
         funcaoPorParametros(function(){
             console.log('funcao passada por parametro.');
         });
+
+        //Estudo sobre escopos de variáveis.
+        var x = 0;
+
+        function mostraX(x){
+            var x = 10;
+            console.log('Escopo local: ', x);
+        }
+
+        mostraX();
+
+        console.log('Escopo global: ', x);
+
+        //IFEE uma boa pratica e usar funções auto invocaveis para evitar que variáveis fiquem no escopo global.
+        // É uma boa pratica usar 'use strict' para evitar que variaveis declaradas ser o var, let ou const poluam o escopo global
+        (function (){
+            'use strict'
+            var isValide = false;
+            console.log(isValide);
+            
+            //Exemplo de varArgs com array no JS.
+            function somar(arr) {
+                console.log( arr[0] + arr[1] + arr[2] );
+            }
+
+            somar([20, 20, 10]);
+
+            //Em casos em que não é possivel saber a quantidade de parametros podemos usar o 'arguments'
+            function somarVargs() {
+                console.log('Aguments: ', arguments);
+                var result = 0;
+                var index = 0;
+                while(arguments[index]){
+                    result += arguments[index];
+                    index++;
+                }
+                console.log('result: ', result);
+            }
+
+            somarVargs(20, 20, 10, 30);
+        })();
+        
+
 
     </script>
 </head>
