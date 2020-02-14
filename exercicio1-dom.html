@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercicio 1</title>
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1>
+
+        <div id='msg'>
+            <p>Bem-vindo, </p>
+            <p>Bem-vindo, </p>
+        </div>
+
+        <script>
+
+            (function () {
+                'use strict';
+                var nome = prompt('Digite o seu nome');
+                var paragrafos = document.querySelectorAll('#msg p');
+                paragrafos[0].textContent = paragrafos[0].textContent + nome;
+                paragrafos[1].innerHTML = paragrafos[1].textContent + '<b>' + nome + '</b>'; 
+            })();
+        
+        </script>
+
+    </body>
+</html>

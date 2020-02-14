@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercicio 2</title>
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1>
+
+        <input type="text" id="txtNome">
+        <button onclick="escrever()">Enviar</button>
+
+        <div id='msg'>
+            <p>Seja Bem-vindo, </p>
+        </div>
+
+        <script>
+
+            function escrever(){
+                'use strict';
+                var nome = document.getElementById('txtNome').value;
+                var mensagem = document.querySelector('#msg p');
+                mensagem.textContent = mensagem.textContent + nome;
+            }
+
+        </script>
+
+    </body>
+</html>
