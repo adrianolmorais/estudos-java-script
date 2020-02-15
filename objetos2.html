@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Javascript Completo 2018</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Curso Javascript Completo 2018</h1>
+    </div>
+
+    <script>
+        //Função construtora com propiedades privadas e que não podem atribuir propiedades nem metodos ao escopo do window
+        var Caneta = (function(){
+                        'use strict';
+                        function _caneta(corAlterada, precoAlterado){
+                            
+                            var cor = corAlterada || 'black';
+                            var preco = precoAlterado || 1;
+                            
+                            this.setCor = function(corAlterada){
+                                cor = corAlterada;
+                            }
+                
+                            this.getCor = function(){
+                                return cor;
+                            }
+                
+                            this.setPreco = function(precoAlterado){
+                                preco = precoAlterado;
+                            }
+                
+                            this.getPreco = function(){
+                                return preco
+                            }
+                        }
+                        return _caneta;
+                    })();
+
+        var caneta = new Caneta("red", 10);
+    </script>
+
+</body>
+</html>
