@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        .done{
+            text-decoration: line-through;
+            color: #555;
+        }
+    </style>
+
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Lista de Tarefas</h1>
+        <label for="inputTarefa">Nova Tarefa</label>
+        <input type="text" id="inputTarefa">
+        <button id="adicionar">adicionar</button>
+        <ul>
+            <li>Estudar DOM</li>
+            <li>Estudar Eventos</li>
+            <li>Jogar video-game</li>
+        </ul>
+    </div>
+    <script>
+        (function(){
+            'use strict'
+            
+            var $ul = document.querySelector("ul");
+            var $lis = $ul.getElementsByTagName("li");
+            var $inputTarefa = document.getElementById("inputTarefa");
+            var $botaoAdcionar = document.getElementById("adicionar");
+
+            $botaoAdcionar.addEventListener("click", adicionarTarefa);
+            $inputTarefa.addEventListener("keyup", function(event) {
+                if(event.keyCode === 13){
+                    adicionarTarefa();
+                }
+            });
+
+            $ul.addEventListener("click", function(event){
+                
+                if(event.target.nodeName === "LI"){
+                    removeTask(event.target);
+                }
+
+            });
+
+            function removeTask(li){
+                if (confirm("deseja realmente excluir a tarefa \n" + li.textContent + "?")) {
+                    console.log(li.parentNode);
+                    li.parentNode.removeChild(li);
+                }
+            }
+
+            function adicionarTarefa(){
+            
+                var li = document.createElement("li");
+                var text = document.createTextNode($inputTarefa.value);
+
+                li.appendChild(text);
+                $ul.appendChild(li);
+
+                $inputTarefa.value = "";
+                $inputTarefa.focus();
+            }
+
+        })();
+
+    </script>
+</body>
+</html>

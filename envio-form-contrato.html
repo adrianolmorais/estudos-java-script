@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forumlário de contrato</title>
+</head>
+<body>
+    <div>
+        <h1>Envio Formulário de contrato</h1>
+        <form action="#">
+            <textarea cols="50" rows="10" readonly>
+                Olá devs!
+                Recentemente algumas pessoas me mandaram mensagens informando que estavam tendo problemas ao tentar assistir a alguns videos na Udemy.
+                Gostaria de informar que, segundo a Udemy, o erro foi corrigido.
+                Porém, se o problema persistir, tente limpar o cache do navegador e carregar a página ou reinicie seus navegadores
+                Caso não ajude, a Udemy solicita para entrar em contato diretamente com a equipe de suporte para que eles possam ajudá-los diretamente.
+                Obrigado pela sua paciência e cooperação.
+            </textarea><br>
+            <label>
+                <input type="checkbox" id="check" checked> Li e concordo com os tesmo desse contrato.
+            </label><br>
+            <input type="submit" value="Continuar" id="botao">
+        </form>
+    </div>
+    <script>
+
+        (function(){
+            'use strict'
+            var $checkbox = document.querySelector("#check");
+            var $botao = document.querySelector("#botao");
+            
+            toggleBotton();
+    
+            $checkbox.addEventListener("change", function(){
+
+                // if (this.checked){
+                //     $botao.disabled = false;
+                // }else{
+                //     $botao.disabled = true;
+                // }
+
+                toggleBotton();
+
+            });
+            
+            function toggleBotton(){
+                $botao.disabled = !$checkbox.checked;
+            }
+    
+        })();
+
+    </script>
+</body>
+</html>

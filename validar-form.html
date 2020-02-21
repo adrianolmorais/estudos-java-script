@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validando Formulários</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Validação de formulários</h1>
+       
+        <form action="#" method="POST">
+            <label for="txtUser">Usuário</label>
+            <input type="text" name="user" id="txtUser"><br>
+            <label for="txtPass">Senha</label>
+            <input type="password" name="pass" id="txtPass"><br>
+            <button type="submit" id="btn">Logar</button>
+        </form>
+    
+    </div>
+    <script>
+        (function(){
+            'use strict'
+            var $form = document.querySelector("form");
+            var $txtUser = document.querySelector("#txtUser");
+            var $txtPass = document.querySelector("#txtPass");
+            var $buttonLogar = document.querySelector("#btn");
+
+            $form.addEventListener("submit", function(event){
+
+                if(!$txtUser.value || !$txtPass.value){
+                    alert("Preencha todos os campos");
+                    event.preventDefault();
+                }
+
+            });
+        })();
+    </script>
+</body>
+</html>
