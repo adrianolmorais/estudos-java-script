@@ -8,24 +8,21 @@
     <body>
         <div class="container">
             <h1>Curso Javascript Completo 2018</h1>
+            
+            <button id="btn1" onclick="clicar()">botão 1</button>
+            <button id="btn2">botão 2</button>
+        
         </div>
         
         <script>
             
-            var x = [0];
+            var $bnt2 = document.getElementById("btn2");
+            $bnt2.onclick = clicar;
 
-            function mudaX(x){
-                var y = x;
-                y.push(2);
-                console.log('mudaX: ');
-                console.log(x);
-                console.log(y);
+            function clicar(){
+                alert("clicou no botão");
             }
 
-            mudaX(x);
-
-            console.log('x: ');
-            console.log(x);
         </script>
     </body>
 </html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Curso Javascript Completo 2018</h1>
+            
+            <button id="btn1" onclick="clicar()">botão 1</button>
+            <button id="btn2">botão 2</button>
+            <button id="btn3">botão 3</button>
+        
+        </div>
+        
+        <script>
+            
+            var $bnt2 = document.getElementById("btn2");
+            $bnt2.onclick = clicar;
+
+            function clicar(){
+                alert("clicou no botão");
+            }
+
+            var $btn3 = document.getElementById("btn3");
+            $btn3.addEventListener("click", function (){
+                alert("clicou no botão dom lvl 2");
+            })
+            
+            $btn3.addEventListener("click", function (){
+                alert("clicou no botão dom lvl 2 com outro evento");
+            })
+
+        </script>
+    </body>
+</html>
