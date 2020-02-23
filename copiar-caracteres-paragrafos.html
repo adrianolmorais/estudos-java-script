@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatação de nome completo</title>
+</head>
+
+<body>
+    <script>
+        (function() {
+            'use strict'
+            window.addEventListener("load", init);
+
+            function init() {
+                var $paragrafos = document.getElementsByTagName("p");
+
+                for (var index = 0; index < $paragrafos.length; index++) {
+                    $paragrafos[index].innerHTML = formatarTexto($paragrafos[index].innerHTML);
+                }
+            }
+
+            function formatarTexto(texto) {
+                const numeroMaxCaracteres = 200;
+                if (texto.length <= numeroMaxCaracteres) {
+                    return texto
+                }
+
+                var subTexto = texto.slice(0, numeroMaxCaracteres);
+                return subTexto + "...";
+            }
+        })();
+    </script>
+
+    <h1>Curso JavaScript Completo 2018</h1>
+
+    <p>É um fato estabelecido há muito tempo que um leitor se distrai com o conteúdo legível de uma página ao examinar seu layout. O objetivo de usar <b>Lorem Ipsum</b> é que ele tem uma distribuição de letras mais ou menos normal, em vez de usar 'Conteúdo
+        aqui, conteúdo aqui', fazendo com que pareça um inglês legível. Muitos pacotes de editoração eletrônica e editores de páginas da Web agora usam Lorem Ipsum como texto padrão do modelo, e uma pesquisa por 'lorem ipsum' descobrirá muitos sites ainda
+        na infância. Várias versões evoluíram ao longo dos anos, às vezes por acidente, às vezes de propósito (humor injetado e similares).
+    </p>
+
+    <p>É um fato estabelecido há muito tempo que um leitor se distrai com o conteúdo legível de uma página ao examinar seu layout. O objetivo de usar <b>Lorem Ipsum</b> é que ele tem uma distribuição de letras mais ou menos normal, em vez de usar 'Conteúdo
+        aqui, conteúdo aqui', fazendo com que pareça um inglês legível. Muitos pacotes de editoração eletrônica e editores de páginas da Web agora usam Lorem Ipsum como texto padrão do modelo, e uma pesquisa por 'lorem ipsum' descobrirá muitos sites ainda
+        na infância. Várias versões evoluíram ao longo dos anos, às vezes por acidente, às vezes de propósito (humor injetado e similares).
+    </p>
+
+    <p>É um fato estabelecido há muito tempo que um leitor se distrai com o conteúdo legível de uma página ao examinar seu layout. O objetivo de usar <b>Lorem Ipsum</b> é que ele tem uma distribuição de letras mais ou menos normal, em vez de usar 'Conteúdo
+        aqui, conteúdo aqui', fazendo com que pareça um inglês legível. Muitos pacotes de editoração eletrônica e editores de páginas da Web agora usam Lorem Ipsum como texto padrão do modelo, e uma pesquisa por 'lorem ipsum' descobrirá muitos sites ainda
+        na infância. Várias versões evoluíram ao longo dos anos, às vezes por acidente, às vezes de propósito (humor injetado e similares).
+    </p>
+
+</body>
+
+</html>
