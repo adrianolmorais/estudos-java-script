@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos sobre Arrays</title>
+</head>
+
+<body>
+    <script>
+        var array = ['1', 20, 3, 4, 5, 'fasdfasdfs', 20, '30'];
+
+        var soNumeros = array.every(function(element, index, arrayObject) {
+            return typeof element === 'number';
+        });
+
+        var aoMenosUmNumero = array.some(function(element, index, arrayObject) {
+            return typeof element === 'number';
+        });
+
+        var numeros = array.filter(function(element, index, arrayObject) {
+            return typeof element === 'number';
+        });
+        console.log(numeros);
+
+        array.forEach(function(element, index, arrayObject) {
+            console.log('element', element, 'index', index, 'arrayObject', array.toString());
+        });
+
+        var positionString = array.indexOf(20, 5);
+        console.log(positionString);
+
+        var positionString = array.lastIndexOf(20, 5);
+        console.log(positionString);
+
+        console.log(numeros);
+        numeros = numeros.map(function(element, index, arrayObject) {
+            return element * index;
+        });
+        console.log(numeros);
+
+        var array2 = array.concat(numeros, 'ola', 'array2', 100);
+        console.log(array2);
+
+        var string = array2.join('--');
+        console.log(string);
+
+        array.push('novo', 'item');
+        console.log(array);
+
+        var ultimoItem = array.pop();
+        console.log(ultimoItem);
+        console.log(array);
+
+        var primeiroItem = array.shift();
+        console.log(primeiroItem);
+        console.log(array);
+
+        array.unshift('true', 'false', 'unshift');
+        console.log(array);
+
+        var somaDeArray = numeros.reduce(function(anterior, atual) {
+            console.log(anterior, atual);
+            return anterior + atual;
+        }, 10);
+        console.log(numeros);
+        console.log(somaDeArray);
+
+        var testReduce = ['1', '2', '3', '4', '5'].reduce(function(anterior, atual) {
+            return anterior + atual;
+        });
+        console.log(testReduce);
+
+        var testReduceRight = ['1', '2', '3', '4', '5'].reduceRight(function(anterior, atual) {
+            return anterior + atual;
+        });
+        console.log(testReduceRight);
+
+        var testReduce2 = ['1', '2', '3', '4', '5'].reduce(function(anterior, atual) {
+            return anterior + atual;
+        }, '10-');
+        console.log(testReduce2);
+
+        var testReduceRight2 = ['1', '2', '3', '4', '5'].reduceRight(function(anterior, atual) {
+            return anterior + atual;
+        }, '10-');
+        console.log(testReduceRight2);
+
+        var arrayReverse = [10, 20, 30];
+        arrayReverse.reverse();
+        console.log(arrayReverse);
+
+        console.log(array2);
+        console.log(array2.slice(2));
+        console.log(array2);
+        console.log(array2.slice(2, 5));
+
+        array2.splice(2, 0, 'limão', 'melão');
+        console.log(array2);
+
+        array2 = array2.splice(2, 3, 'limão', 'melão');
+        console.log(array2);
+    </script>
+</body>
+
+</html>
