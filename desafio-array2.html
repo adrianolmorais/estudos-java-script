@@ -34,7 +34,7 @@
     <script>
         var paragrafos = document.getElementsByTagName('p');
 
-        for (var index = 0; index <= paragrafos.length; index++) {
+        for (var index = 0; index < paragrafos.length; index++) {
             var temJS = paragrafos[index].textContent.toLowerCase().indexOf('javascript') >= 0;
             paragrafos[index].className = temJS ? 'destaque' : '';
         }
