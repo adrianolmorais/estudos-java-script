@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        (function() {
+            'use strict'
+
+            var dateNow = new Date();
+
+
+            function formateDate(date) {
+
+                var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+                var month = date.getMonth() + 1;
+                month = month < 10 ? '0' + month : date.getMonth();
+
+                return day + '/' + month + '/' + date.getFullYear();
+            }
+
+            console.log(formateDate(dateNow));
+
+        })();
+    </script>
+
+</body>
+
+</html>

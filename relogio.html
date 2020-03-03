@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Relógio</title>
+</head>
+
+<body>
+    <h1>Relógio</h1>
+    <div class="relogio">
+
+    </div>
+    <script>
+        (function() {
+            'use strict'
+
+            var $inputRelogio = document.querySelector('.relogio');
+
+            function clock() {
+                var dateTimeNow = new Date();
+                return timeFormat(dateTimeNow.getHours()) + ':' + timeFormat(dateTimeNow.getMinutes()) + ':' + timeFormat(dateTimeNow.getSeconds());
+            }
+
+            function timeFormat(dateTime) {
+                return dateTime < 10 ? '0' + dateTime : dateTime;
+            }
+
+            setInterval(function() {
+                $inputRelogio.textContent = clock();
+            }, 1000);
+
+
+        })();
+    </script>
+</body>
+
+</html>

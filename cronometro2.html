@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Logica de Programação Javascript</title>
+    <meta charset="utf-8">
+
+
+</head>
+
+<body>
+    <h1>Javascript Completo</h1>
+
+    <input type="text" id="cronometro">
+    <button id="iniciar">Iniciar</button>
+    <button id="pausar">Pausar</button>
+    <button id="parar">Parar</button>
+
+    <script>
+        (function() {
+            'use strict'
+            var $cronometro = document.querySelector('#cronometro');
+            var $iniciar = document.querySelector('#iniciar');
+            var $pausar = document.querySelector('#pausar');
+            var $parar = document.querySelector('#parar');
+
+            $iniciar.addEventListener('click', iniciar);
+            $pausar.addEventListener('click', pausar);
+            $parar.addEventListener('click', parar);
+
+            var interval = null;
+            var startTimeStamp = 0;
+            var pauseTimeStamp = 0;
+            var runtimeMillisSeconds = 0;
+            var running = false;
+
+            function iniciar() {
+                if (running) {
+                    return;
+                }
+                startTimeStamp = Date.now();
+                chronometer();
+                running = true;
+            }
+
+            function pausar() {
+                if (!$cronometro.value) {
+                    return;
+                }
+                if (running) {
+                    clearInterval(interval);
+                    pauseTimeStamp = Date.now();
+                    runtimeMillisSeconds += pauseTimeStamp - startTimeStamp;
+                } else {
+                    startTimeStamp = Date.now();
+                    chronometer(runtimeMillisSeconds);
+                }
+                running = !running;
+            }
+
+            function parar() {
+                pauseTimeStamp = 0;
+                startTimeStamp = 0;
+                runtimeMillisSeconds = 0;
+                running = false;
+                clearInterval(interval);
+                $cronometro.value = "";
+            }
+
+            function chronometer(runtime) {
+                var _ms = runtimeMillisSeconds || 0;
+                interval = setInterval(function() {
+                    var timeStampNow = Date.now();
+                    var differenceBetween = timeStampNow - startTimeStamp
+                    $cronometro.value = formatTimeStampToDate(differenceBetween + _ms);
+                }, 100)
+            }
+
+            function formatTimeStampToDate(ms) {
+
+                const MINUTO = 60 * 1000;
+
+                if (ms < 1000) {
+                    return ms;
+                } else if (ms < MINUTO) {
+                    var s = ms / 1000;
+                    s = parseInt(s);
+                    var c = ms - (s * 1000);
+                    return s + ':' + c;
+                } else {
+                    var m = ms / (MINUTO);
+                    m = parseInt(m);
+                    return m + ":" + formatTimeStampToDate(ms - m * MINUTO);
+                }
+
+            }
+
+            function formaterHours(time) {
+                return time < 10 ? '0' + time : time;
+            }
+
+
+        })()
+    </script>
+</body>
+
+</html>

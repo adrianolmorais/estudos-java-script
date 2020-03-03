@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Logica de Programação Javascript</title>
+    <meta charset="utf-8">
+
+
+</head>
+
+<body>
+    <h1>Javascript Completo</h1>
+
+    <input type="text" id="cronometro">
+    <button id="iniciar">Iniciar</button>
+    <button id="pausar">Pausar</button>
+    <button id="parar">Parar</button>
+
+    <script>
+        (function() {
+            'use strict'
+            var $cronometro = document.querySelector('#cronometro');
+            var $iniciar = document.querySelector('#iniciar');
+            var $pausar = document.querySelector('#pausar');
+            var $parar = document.querySelector('#parar');
+            var dateNow = new Date(0, 0, 0, 0, 0, 0);
+            var time;
+            var eventInterval;
+
+            function chronometer() {
+                dateNow.setMilliseconds(dateNow.getMilliseconds() + 1);
+                time = formaterHours(dateNow.getHours()) + ':' + formaterHours(dateNow.getMinutes()) + ':' + formaterHours(dateNow.getSeconds()) + ':' + formaterHours(dateNow.getMilliseconds());
+                $cronometro.value = time;
+            }
+
+            function formaterHours(time) {
+                return time < 10 ? '0' + time : time;
+            }
+
+            $iniciar.addEventListener('click', function() {
+                if (eventInterval === 'pause' || eventInterval === undefined) {
+                    console.log('start');
+                    eventInterval = setInterval(chronometer, 1);
+                }
+            });
+
+            $pausar.addEventListener('click', function() {
+                if (eventInterval > 0) {
+                    clearInterval(eventInterval);
+                    eventInterval = 'pause';
+                    console.log(eventInterval);
+                }
+            });
+
+            $parar.addEventListener('click', function() {
+                if (eventInterval > 0 || eventInterval === 'pause') {
+                    eventInterval = clearInterval(eventInterval);
+                    dateNow = new Date(0, 0, 0, 0, 0, 0);
+                    console.log('stop');
+                }
+            });
+
+        })()
+    </script>
+</body>
+
+</html>
